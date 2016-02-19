@@ -118,23 +118,43 @@ SHGcontribution_yield = 40 		# hrs
 
 # user is prompted to select starting assets 
 print("\n")
-selection = input("1) preset scenarios 2) custom set of scenarios : ")
+print("Choose the set of scenarios you want to run.")
+print()
+selection = input("1) short 2) long 3) custom : ")
 print("\n")
-if selection < 2:
+
+if selection == 1:
 
 	ll = 1
 	lh = 6
 	il = 1
-	ih = 6
+	ih = 5
 	pl = 1
-	ph = 6
+	ph = 4
 	cl = 0
-	ch = 3
+	ch = 4
 	gl = 0
 	gh = 2
 	dl = 0
-	dh = 100000
+	dh = 50000
 	di = 10000
+	delay = 0.1
+
+elif selection == 2:
+
+	ll = 1
+	lh = 6
+	il = 0
+	ih = 6
+	pl = 0
+	ph = 6
+	cl = 0
+	ch = 6
+	gl = 0
+	gh = 3
+	dl = 0
+	dh = 100000
+	di = 5000
 	delay = 0.1
 
 else: 
@@ -173,8 +193,6 @@ for land in range(ll,lh+1):
 				for goat in range(gl,gh+1):
 
 					for initial_debt in range(dl,dh+1,di):
-
-						# if land > irrigated or irrigated > paddy or land > paddy:
 
 						if paddy <= irrigated and land and irrigated <= land:
 
@@ -259,11 +277,10 @@ for land in range(ll,lh+1):
 
 							paddy_nonlabour = (paddy * (paddys_cost + urea_cost + DAP_cost + MOP_cost + compost_cost)) * paddy_reduction
 							cow_nonlabour = cow * ((cattlef_min * cattlef_cost) + (dryf_min * dryf_cost) + (mineral_min * mineral_cost) + (greenf_min * greenf_cost) + livestock_shed)
-							
 							turn_labour = ((labour_cost * labour_demand) * paddy) * paddy_reduction
+			
 							turn_family = turn_labour * family_share
 							turn_hired = turn_labour - turn_family 
-
 
 							# p&l
 
@@ -306,12 +323,11 @@ for land in range(ll,lh+1):
 							print(locale.format("%d", turn_risk, grouping=True), end='')
 							print("\t > Risk")
 							print(locale.format("%d", turn_interest, grouping=True), end='')
-							print("\t > Interest", end='')
-							print("\t", end='')
+							print("\t > Interest = ", end='')
 							
 							if initial_debt > 0:
 								print(locale.format("%d", turn_interest / initial_debt * 100, grouping=True), end='')
-								print("%")
+								print(" %")
 							else:
 								print("NNN")
 							print(locale.format("%d", initial_debt, grouping=True), end='') 
@@ -335,5 +351,10 @@ for land in range(ll,lh+1):
 							print(locale.format("%d", turn_returnrate, grouping=True), end='')
 							print("\t > Return on capital invested (%)" + Style.RESET_ALL)
 							print("\n")
+
+							paddy_reduction = 0
+							paddy_nonlabour = 0
+							paddy_income = 0
+							turn_farm = 0
 
 							time.sleep(delay)
