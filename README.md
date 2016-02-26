@@ -21,11 +21,11 @@ Once you have python installed, follow these instructions (assumes zero previous
 	
 4) change the rights of the file to excecute with command: 
 
-	chmod +x RUPO.py
+	chmod +x multi.py
 
 5) start the program with one more command: 
 
-	./RUPO.py
+	./multi.py
 
 
 ###### FOR WINDOWS-USERS: 
