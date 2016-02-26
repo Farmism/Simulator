@@ -9,7 +9,7 @@ You can get Python from here: https://www.python.org/downloads/
 
 Once you have python installed, follow these instructions (assumes zero previous experience):
 
-1) copy-paste RUPO.py code on your desktop to a file called RUPO.py
+1) copy-paste multi.py or single.py code on your desktop to a file called RUPO.py
 
 
 ###### FOR MAC-USERS: 
@@ -30,9 +30,7 @@ Once you have python installed, follow these instructions (assumes zero previous
 
 ###### FOR WINDOWS-USERS: 
 
-1) Find python.exe and add it to Windows PATH: http://showmedo.com/videotutorials/video?name=960000&fromSeriesID=96
-
-2) Copy the files: https://github.com/mikkokotila/RUPO.py
+2) Find python.exe and add it to Windows PATH: http://showmedo.com/videotutorials/video?name=960000&fromSeriesID=96
 
 3) Open windows shell by searching "cmd"
 
@@ -40,8 +38,9 @@ Once you have python installed, follow these instructions (assumes zero previous
 	
 	cd C:\xxxx\yyy
 
-5) Run "python coder.py" in shell
-
+5) Run the command
+	
+	python multi.py
 
 NOTE: if you did not succeed with #2 above, then just copy the raw files to python directory and run #4 there
 
